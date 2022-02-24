@@ -1,0 +1,12 @@
+{
+  "name": "core-nodejs-getting-started",
+  "version": "1.0.0",
+  "description": "_____________________________________________________________\r **Node.js**: A wrapper around V8 with built-in modules providing rich features through easy-to-use asynchronous APIs.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
