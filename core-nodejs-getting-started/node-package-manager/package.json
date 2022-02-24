@@ -1,0 +1,25 @@
+{
+  "name": "package-manager",
+  "version": "1.0.0",
+  "description": "_____________________________________________________________",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "jest",
+    "posttest": "node -e 'console.log(\"Done Testing\")'",
+    "check": "eslint index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "jest": "^27.5.1",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-plugin-react": "^7.28.0",
+    "nodemon": "^2.0.15"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
