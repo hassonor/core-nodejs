@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Globomantics</title>
     <meta charset="utf-8">
@@ -19,7 +20,8 @@
     <header>
         <div class="container">
             <div class="logo col-md-5 col-sm-5 col-xs-8">
-                <a href="index.html"><img src="images/Globo-Logo-white.svg" alt="logo"/></a><span class="text">MANIACALLY TAKING TECH TO THE GLOBE</span>
+                <a href="index.html"><img src="images/Globo-Logo-white.svg" alt="logo"/></a><span class="text">MANIACALLY
+            TAKING TECH TO THE GLOBE</span>
             </div>
             <div class="mobile-togle col-md-12 col-sm-12 col-xs-12">
                 <nav class="navbar navbar-default" role="navigation">
@@ -38,7 +40,8 @@
                             <li>
                                 <div class="search1">
                                     <button type="submit"><i class="fa fa-search"></i></button>
-                                    <input type="text" class="form-control" placeholder="Search">
+                                    <input type="text" class="form-control"
+                                           placeholder="Search">
                                 </div>
                             </li>
                             <ul class="navbar-nav mr-auto">
@@ -69,7 +72,8 @@
             <div class="right_section col-md-5 col-xs-12">
                 <div class="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" class="form-control"
+                           placeholder="Search">
                 </div>
 
 
@@ -117,65 +121,20 @@
         </div>
     </header>
 
-
-    <section class="banner">
-        <img src="images/hero image.png"/>
-        <div class="inner-content col-md-12">
-            <div class="container jumboContainer">
-                <div class=" col-md-8 middle">
-                    <h1>THE FUTURE<br> <span>WAS FIVE MINUTES AGO</span>.</h1>
-
-                    <p>We were there and it is going to be epic</p></div>
-
-                <div class="content-right col-md-4">
-                    <h3>FUTURE</h3><span>CONFERENCE</span>
-                    <div class="text-center">
-                        <button type="button" class="btn btn-primary btn-lg">SIGN UP TODAY</button>
-                    </div>
-                    <p>Tickets are selling fast
-                        get yours today and be
-                        there in the future</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="sec_include">
         <div class="container">
 
-
-            <div class="row">
+            <% sessions.map((session, index)=>{ %>
                 <div class="col-xs-12 col-sm-4 col-md-4 adj_text">
 
+                    <h3><%= session.title %></h3>
+                    <p><%= session.description.slice(0, 250) %></p>
 
-                    <h3>DARK ENERGY</h3>
-                    <p>BRIGHTENS THE WORLD</p>
-                    <img src="images/Bitmap.png" alt="Public Adjuster"/>
-
-                    <div class="read-more-btn">
-                        <a href="#" class="btn-oval">Learn More</a>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4 adj_text">
-                    <h3>ROBOTICS</h3>
-                    <p>THEY ARE HERE AND THEY PLAY</p>
-                    <img src="images/Bitmap(1).png" alt="Public"/>
-                    <div class="read-more-btn">
-                        <a href="robotics.html" class="btn-oval">Learn More</a>
-                    </div>
+                    <a href="/sessions/<%= index %>" class="btn-oval">Learn More</a>
 
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4 adj_text">
-                    <h3>STRANGERS RISE</h3>
-                    <p>ASCENSION GOES TECHNICAL</p>
-                    <img src="images/shutterstock_211091626.png" alt="Public"/>
-                    <div class="read-more-btn">
-                        <a href="#" class="btn-oval">Learn More</a>
+            <% }) %>
 
-                    </div>
-
-                </div>
-            </div>
         </div>
     </section>
 
@@ -185,7 +144,8 @@
             <div class="main-footer col-md-12 col-xs-12">
                 <div class="foter-logo col-md-3 col-sm-3 col-xs-2">
                     <a href="index.html"><img class="desktop" src="images/Globo-Logo-white-footer.svg"><img
-                                class="mobileImg" src="images/G.png">
+                                class="mobileImg"
+                                src="images/G.png">
                     </a>
                 </div>
                 <div class="links col-md-5 col-md-5 col-xs-10">
@@ -206,31 +166,29 @@
                     </ul>
                 </div>
             </div>
-        </div><!---container-->
+        </div>
+        <!---container-->
+
+        <!---------- End of Wrapper ----------->
 
 
-    </footer>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script>
+            jQuery(document).ready(function () {
+
+                // alert("wow");
+                //  jQuery("header").addClass("fixed");
+                jQuery("#hamburger").click(function () {
+                    //alert("The paragraph was clicked.");
+                    jQuery("header").toggleClass("fixed");
+                });
 
 
-</div><!---------- End of Wrapper ----------->
+            });
 
-
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script>
-    jQuery(document).ready(function () {
-
-        // alert("wow");
-        //  jQuery("header").addClass("fixed");
-        jQuery("#hamburger").click(function () {
-            //alert("The paragraph was clicked.");
-            jQuery("header").toggleClass("fixed");
-        });
-
-
-    });
-
-</script>
+        </script>
 
 </body>
+
 </html>
