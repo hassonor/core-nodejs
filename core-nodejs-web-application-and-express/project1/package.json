@@ -1,16 +1,15 @@
 {
-  "name": "web-servers",
+  "name": "project1",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Or Hasson",
+  "license": "MIT",
   "dependencies": {
-    "nodemon": "^2.0.15"
+    "express": "^4.17.3"
   }
 }
