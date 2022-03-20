@@ -10,3 +10,6 @@ ____
 * Serving static files
     * Bootstrap
     * JQuery
+* Templating engines
+* Passing data a page
+* Working with a template
