@@ -54,4 +54,13 @@ ___
 * __express.json:__ Parses incoming requests with JSON payloads
 * __express.urlencoded:__ Parses incoming requests with URL-encoded payloads
 
+### Security concerns and best practices
+
+* Make sure you are using the most up-to-date version of Express
+* Use Transport Layer Security (TLS)
+* Use Helmet
+* Use cookies securely
+* Prevent brute-force attacks against authorization
+* Ensure your dependencies are secure
+
 
