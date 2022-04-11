@@ -1,0 +1,26 @@
+{
+  "name": "restful-api-with-express",
+  "version": "1.0.0",
+  "description": "Building a Website with Node.js and Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon  server.js"
+  },
+  "keywords": [],
+  "author": "Or Hasson",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.10",
+    "nodemon": "^2.0.15"
+  },
+  "devDependencies": {
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.6.2"
+  }
+}

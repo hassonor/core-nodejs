@@ -24,7 +24,14 @@ app.use(
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './views'));
 
+app.locals.siteName = 'OR Meetups';
+
 app.use(express.static(path.join(__dirname, './static')));
+
+app.use((request, response, next) => {
+  response.locals.someVariable = 'Or Hasson';
+  return next();
+});
 
 app.use(
   '/',
