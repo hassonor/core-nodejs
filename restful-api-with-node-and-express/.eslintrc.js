@@ -9,5 +9,5 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  rules: {},
+  rules: { 'no-underscore-dangle': 'off', 'import/no-dynamic-require': 'off' },
 };
