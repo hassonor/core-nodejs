@@ -10,10 +10,15 @@
   "author": "Or Hasson",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
     "express": "^4.17.3",
+    "express-rate-limit": "^6.3.0",
+    "helmet": "^5.0.2",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.10",
-    "nodemon": "^2.0.15"
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15",
+    "striptags": "^3.2.0"
   },
   "devDependencies": {
     "eslint": "^8.13.0",
