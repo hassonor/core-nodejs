@@ -1,10 +1,11 @@
-const express = require('express');
-const logic = require('../business-logic-layer/crm-logic');
-const ContactModel = require('../models/crm-model');
+const express = require("express");
+const logic = require("../business-logic-layer/crm-logic");
+const ContactModel = require("../models/crm-model");
+const verifyLoggedIn = require("../middleware/verify-logged-in");
 
 const router = express.Router();
 
-router.get('/', async (request, response) => {
+router.get("/", verifyLoggedIn, async (request, response) => {
   try {
     const contacts = await logic.getAllContactsAsync();
     response.json(contacts);
@@ -13,7 +14,7 @@ router.get('/', async (request, response) => {
   }
 });
 
-router.get('/:_id', async (request, response) => {
+router.get("/:_id", verifyLoggedIn, async (request, response) => {
   try {
     const { _id } = request.params;
 
@@ -26,7 +27,7 @@ router.get('/:_id', async (request, response) => {
   }
 });
 
-router.post('/', async (request, response) => {
+router.post("/", verifyLoggedIn, async (request, response) => {
   try {
     const contact = new ContactModel(request.body);
 
@@ -41,7 +42,7 @@ router.post('/', async (request, response) => {
   }
 });
 
-router.put('/:_id', async (request, response) => {
+router.put("/:_id", verifyLoggedIn, async (request, response) => {
   try {
     const { _id } = request.params;
     request.body._id = _id;
@@ -56,7 +57,7 @@ router.put('/:_id', async (request, response) => {
   }
 });
 
-router.delete('/:_id', async (request, response) => {
+router.delete("/:_id", verifyLoggedIn, async (request, response) => {
   try {
     const { _id } = request.params;
 

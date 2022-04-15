@@ -9,6 +9,7 @@ const helmet = require("helmet");
 const expressRateLimit = require("express-rate-limit");
 const sanitize = require("./middleware/sanitize");
 const crmController = require("./controllers-layer/crm-controller");
+const authController = require("./controllers-layer/user-controller");
 
 const app = express();
 // Prevent DOS attack:
@@ -29,6 +30,9 @@ app.use(sanitize);
 
 
 app.use("/api/contacts", crmController);
+app.use("/api/auth", authController);
+
+
 app.use("*", (request, response) => response.status(404).send("Route not found."));
 
 const PORT = 3003 || process.env.PORT;
