@@ -1,18 +1,52 @@
-const http = require("http");
+const axios = require("axios");
+const fs = require("fs");
 
-const request = http.get(
-  "http://www.google.com",
-  (response) => {
-    console.log(`statusCode: ${response.statusCode}`);
-    console.log(response.headers);
+// GET request used:
+axios({
+  method: "get",
+  url: "http://www.google.com",
+  responseType: "stream"
+})
+  .then((response) => {
+    response.data.pipe(fs.createWriteStream("google.html"));
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 
-    response.on("data", (chunk) => {
-      console.log("This is a chunk: \n");
-      console.log(chunk.toString());
+// POST request used:
+axios({
+  method: "post",
+  url: "http://localhost:8080/users",
+  data: {
+    userNames: "hassonor"
+  },
+  transformRequest: (data, headers) => {
+    const newData = data.userNames.map((userName) => {
+      return userName + "!";
     });
+    return JSON.stringify(newData);
   }
-);
+})
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 
-request.on("error", (err) => {
-  console.error(err);
+const getMetadata = () => {
+  return axios.get("http://localhost:8080/metadata?id=1");
+};
+
+const getMetadataAgain = () => {
+  return axios.get("http://localhost:8080/metadata?id=1");
+};
+
+// Making concurrent requests:
+axios.all([
+  getMetadata(), getMetadataAgain()
+]).then((responseArray) => {
+  console.log(responseArray[0].data.description);
+  console.log(responseArray[1].data.description);
 });

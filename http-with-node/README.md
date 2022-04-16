@@ -62,6 +62,12 @@ ___
 * Graceful error handling
 * Very high test coverage
 
-#### Handling FIle Uploads with a Callback
+### The "axios" Package
+
+* Well-maintained
+* Works Client and Server-side
+* Streaming
+* Promise Based API
+* Automatic Transformation of Data into JSON
 
 
