@@ -1,6 +1,10 @@
-global.config = require(process.env.NODE_ENV === "production"
-  ? "./config-prod.json"
-  : "./config-dev.json");
+if (process.env.NODE_ENV === "test") {
+  global.config = require("./config-test.json");
+} else {
+  global.config = require(process.env.NODE_ENV === "production"
+    ? "./config-prod.json"
+    : "./config-dev.json");
+}
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");

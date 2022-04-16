@@ -1,6 +1,9 @@
 // During the test the env variable is set to test
 process.env.NODE_ENV = "test";
 
+global.config = require(process.env.NODE_ENV === "test"
+  ? "../config-test.json"
+  : null);
 const mongoose = require("mongoose");
 
 // Require the dev-dependencies
