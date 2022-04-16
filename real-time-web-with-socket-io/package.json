@@ -1,0 +1,19 @@
+{
+  "name": "chatter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -r esm index.js",
+    "debug": "DEBUG=* nodemon -r esm index.js",
+    "debug:windows": "@powershell $env:DEBUG='*,-express:router*' ; npm run start"
+  },
+  "author": "Or Hasson",
+  "license": "MIT",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15",
+    "socket.io": "^4.4.1"
+  }
+}
