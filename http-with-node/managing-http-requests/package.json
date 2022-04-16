@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "Or Hasson",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "body": "^5.1.0"
+  }
 }
