@@ -1,5 +1,7 @@
 module.exports = {
   env: {
+    node: true,
+    mocha: true,
     browser: true,
     es2021: true
   },
@@ -12,6 +14,7 @@ module.exports = {
   rules: {
     "no-underscore-dangle": "off",
     "import/no-dynamic-require": "off",
+    "import/no-extraneous-dependencies": "off",
     "no-undef": "off",
     "no-unused-vars": "off",
     "consistent-return": "off"

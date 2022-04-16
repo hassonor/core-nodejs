@@ -38,3 +38,5 @@ app.use("*", (request, response) => response.status(404).send("Route not found."
 const PORT = 3003 || process.env.PORT;
 
 app.listen(PORT, () => console.log(`Listening to port ${PORT}`));
+
+module.exports = app;

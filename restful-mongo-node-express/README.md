@@ -1,3 +1,15 @@
+#### The _Uniform_ Interface
+
+Resources(n):
+
+* GET
+* POST
+* PUT / PATCH
+* DELETE
+
+Hypermedia as the Engine of Application State <br><br>
+__(HATEOAS)__
+
 #### Top Five Security Threats
 
 ___

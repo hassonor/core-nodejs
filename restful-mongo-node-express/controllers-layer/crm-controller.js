@@ -5,7 +5,7 @@ const verifyLoggedIn = require("../middleware/verify-logged-in");
 
 const router = express.Router();
 
-router.get("/", verifyLoggedIn, async (request, response) => {
+router.get("/", async (request, response) => {
   try {
     const contacts = await logic.getAllContactsAsync();
     response.json(contacts);
@@ -14,7 +14,7 @@ router.get("/", verifyLoggedIn, async (request, response) => {
   }
 });
 
-router.get("/:_id", verifyLoggedIn, async (request, response) => {
+router.get("/:_id", async (request, response) => {
   try {
     const { _id } = request.params;
 
@@ -48,7 +48,27 @@ router.put("/:_id", verifyLoggedIn, async (request, response) => {
     request.body._id = _id;
     const contact = new ContactModel(request.body);
 
+    // Validation:
+    const errors = contact.validateSync();
+    if (errors) return response.status(400).send(errors.message);
+
     const updatedContact = await logic.updateContactAsync(contact);
+    if (!updatedContact) return response.status(404).send(`_id ${_id} not found.`);
+
+    return response.json(updatedContact);
+  } catch (err) {
+    return response.status(500).send(err.message);
+  }
+});
+
+
+router.patch("/:_id", verifyLoggedIn, async (request, response) => {
+  try {
+    const { _id } = request.params;
+    request.body._id = _id;
+
+
+    const updatedContact = await logic.updateContactPatchAsync(request.body);
     if (!updatedContact) return response.status(404).send(`_id ${_id} not found.`);
 
     return response.json(updatedContact);

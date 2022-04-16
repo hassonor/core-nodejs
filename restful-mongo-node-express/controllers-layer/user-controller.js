@@ -20,7 +20,7 @@ router.post("/login", async (request, response) => {
         email: user.email,
         username: user.username,
         _id: user.id
-      }, config.jwtKey)
+      }, config.jwtKey, { expiresIn: "1d" })
     });
 
   }
