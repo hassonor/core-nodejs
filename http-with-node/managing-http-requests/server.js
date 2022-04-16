@@ -17,23 +17,27 @@ server.on("request", (request, response) => {
     console.log(metadata);
     console.log(request.headers);
   }
-  // const body = [];
-  // request.on("data", (chunk) => {
-  //   body.push(chunk);
-  // }).on("end", () => {
-  //   const parsedJSON = JSON.parse(Buffer.concat(body));
-  //   const userName = parsedJSON[0]["userName"];
-  //   console.log(userName);
-  //   services.createUser(userName);
+
+    // const body = [];
+    // request.on("data", (chunk) => {
+    //   body.push(chunk);
+    // }).on("end", () => {
+    //   const parsedJSON = JSON.parse(Buffer.concat(body));
+    //   const userName = parsedJSON[0]["userName"];
+    //   console.log(userName);
+    //   services.createUser(userName);
   // });
 
-  jsonBody(request, response, (err, body) => {
-    if (err) {
-      console.log(err);
-    } else {
-      services.createUser(body["userName"]);
-    }
-  });
+  else if (request.method === "POST" && parsedUrl.pathname === "/users") {
+    jsonBody(request, response, (err, body) => {
+      if (err) {
+        console.log(err);
+      } else {
+        services.createUser(body["userName"]);
+      }
+    });
+  }
+
 
   response.end("This was served with https!");
 

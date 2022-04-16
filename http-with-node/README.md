@@ -35,6 +35,33 @@ ___
 
 #### Creating a Response
 
+* Set status code
+* Set headers
+* Write data
+* Close connection
 
+#### The Benefits of Streamed Data
+
+* We can operate on our data one piece at a time
+* Memory Efficiency
+* Time Efficiency
+
+#### The "Error" Class
+
+* `error.code`
+* `error.message`
+* `error.stack`
+
+### Handling File Uploads with Formidable
+
+#### Benefits
+
+* Fast (~500mb/sec)
+* Automatically write to disk
+* Low memory footprint
+* Graceful error handling
+* Very high test coverage
+
+#### Handling FIle Uploads with a Callback
 
 
