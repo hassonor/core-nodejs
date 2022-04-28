@@ -32,6 +32,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Prevent XSS attack:
 app.use(sanitize);
 
+app.use((req, res, next) => {
+  console.log(req.method);
+  console.log(req.protocol);
+  console.log(req.get("host"));
+  console.log(req.originalUrl);
+  next();
+});
+
 
 app.use("/api/contacts", crmController);
 app.use("/api/auth", authController);
