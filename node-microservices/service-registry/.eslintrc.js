@@ -18,6 +18,7 @@ module.exports = {
     "no-undef": "off",
     "linebreak-style": 0,
     "no-unused-vars": "off",
-    "consistent-return": "off"
+    "consistent-return": "off",
+    "arrow-body-style": "off"
   }
 };
