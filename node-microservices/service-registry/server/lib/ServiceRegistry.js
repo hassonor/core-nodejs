@@ -1,10 +1,10 @@
-const semver = require("semver");
+const semver = require('semver');
 
 class ServiceRegistry {
   constructor(log) {
     this.log = log;
     this.services = {};
-    this.timeout = 10;
+    this.timeout = 30;
   }
 
   get(name, version) {

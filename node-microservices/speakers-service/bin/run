@@ -1,20 +1,21 @@
 #!/usr/bin/env node
-const axios = require("axios");
-const http = require("http");
+const axios = require('axios');
+const http = require('http');
 
-const config = require("../config")[process.env.NODE_ENV || "development"];
+const config = require('../config')[process.env.NODE_ENV || 'development'];
 
 const log = config.log();
-const service = require("../server/service")(config);
+const service = require('../server/service')(config);
 
 const server = http.createServer(service);
 
 // Important - a service should not have a fixed port but should randomly choose one
 server.listen(0);
 
-server.on("listening", () => {
+server.on('listening', () => {
   const registerService = () => axios.put(`http://localhost:3000/register/${config.name}/${config.version}/${server.address().port}`);
   const unregisterService = () => axios.delete(`http://localhost:3000/register/${config.name}/${config.version}/${server.address().port}`);
+
   registerService();
 
   const interval = setInterval(registerService, 20000);
@@ -23,22 +24,22 @@ server.on("listening", () => {
     await unregisterService();
   };
 
-  process.on("uncaughtException", async () => {
+  process.on('uncaughtException', async () => {
     await cleanup();
     process.exit(0);
   });
 
-  process.on("SIGINT", async () => {
+  process.on('SIGINT', async () => {
     await cleanup();
     process.exit(0);
   });
 
-  process.on("SIGTERM", async () => {
+  process.on('SIGTERM', async () => {
     await cleanup();
     process.exit(0);
   });
 
   log.info(
-    `Hi there! I'm listening on port ${server.address().port} in ${service.get("env")} mode.`
+    `Hi there! I'm listening on port ${server.address().port} in ${service.get('env')} mode.`,
   );
 });
