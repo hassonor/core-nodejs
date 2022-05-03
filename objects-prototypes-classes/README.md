@@ -31,3 +31,35 @@ ___
     2) Verbose
     3) NaN equals NaN
     4) +0 does not equal -0
+
+### Prototype and interfaces
+
+___
+
+* __A Function's Prototype__ is the object __instance__ that will become the prototype for all objects created
+  using this function as a constructor
+* __An Object's Prototype__ is the object __instance__ from which the object is inherited
+
+### Built in JavaScript Objects
+
+___
+
+* Math
+* Date
+* Regex
+
+#### Regex
+
+___
+
+```text
+let regex = new Regex(expression, flags);
+let regex = /expression/flags;
+
+let result = regex.text(stringToSearch);
+
+let result = regex.exec(stringToSearch);
+while(result !== null){
+    result = regex.exec(stringToSearch);
+}
+```
