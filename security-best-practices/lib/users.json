@@ -1,0 +1,17 @@
+[
+    {
+        "email": "janet@wiredbraincoffee.com",
+        "password": "coldbrew",
+        "address": "1234 Wired Brain Blvd\r\nAwesome City, MM 55555"
+    },
+    {
+        "email": "joe@wiredbraincoffee.com",
+        "password": "coldbrew",
+        "address": "1235 Wired Brain Blvd\r\nAwesome City, MM 55555"
+    },
+    {
+        "email": "michael@wiredbraincoffee.com",
+        "password": "coldbrew",
+        "address": "1236 Wired Brain Blvd\r\nAwesome City, MM 55555"
+    }
+]

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+
+    <title>Wired Brain Coffee</title>
+</head>
+
+<body>
+    <h1></h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Wired Brain Coffee</a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto" id="links">
+                <li class="nav-item active">
+                    <a class="nav-link" href="profile.html">Profile</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="login.html?returnTo=%7B%22url%22%3A%22profile.html%22%7D">Login</a>
+                </li>
+            </ul>
+            <span class="navbar-text" id="loggedInUser">
+            </span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="alert alert-danger" role="alert" id="notLoggedIn">
+            You need to be <a href="login.html?returnTo=%7B%22url%22%3A%22profile.html%22%7D">logged in</a> to edit the profile!
+        </div>
+        <form id="profile" class="invisible">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <span class="form-control" id="email" name="email" disabled></span>
+            </div>
+            <div class="form-group">
+                <label for="address">Shipping Address</label>
+                <textarea class="form-control" id="address" name="address" rows="3"></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" id="saveProfile">Save</button>
+        </form>
+    </div>
+
+    <script src="session.js"></script>
+    <script src="profile.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
