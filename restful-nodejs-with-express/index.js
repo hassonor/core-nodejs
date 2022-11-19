@@ -1,8 +1,17 @@
 import express from 'express';
+import mongoose from 'mongoose';
 import routes from './src/routes/crmRoutes';
 
 const app = express();
 const PORT = 3000;
+
+// mongoose connection
+mongoose.connect.Promise = global.Promise;
+mongoose.connect('mongodb://localhost:/CRMdb',{
+  useNewUrlParser: true});
+
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
 routes(app);
 
