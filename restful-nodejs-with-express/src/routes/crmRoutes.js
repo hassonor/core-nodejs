@@ -15,11 +15,11 @@ const routes = (app) => {
 
     app.route('/contact/:contactId')
     .put((req, res) =>
-        res.send('PUT request sucessful!')
+        res.send('PUT request successful!')
     )
 
     .delete((req, res) =>
-        res.send('DELETE request sucessful!')
+        res.send('DELETE request successful!')
     )
 }
 
