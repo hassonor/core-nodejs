@@ -1,7 +1,12 @@
-const fs = require('fs')
+const fs = require("fs");
 
-const data = fs.readFileSync(__filename)
+/*
+  Synchronously read file.
+  The whole program here doesn't go through the event loop.
+  We are directly using the operating system synchronous file reading API.
+ */
+const data = fs.readFileSync(__filename);
 
-console.log('File data is', data)
+console.log("File data is", data);
 
-console.log('Test')
+console.log("Test");
