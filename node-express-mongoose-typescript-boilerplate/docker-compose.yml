@@ -11,7 +11,7 @@ services:
       - backend
   app:
     container_name: ts-node-app
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
       target: base
@@ -21,16 +21,16 @@ services:
       - ${PORT}
     ports:
       - ${PORT}:${PORT}
-    environment: 
-      - MONGODB_URL=mongodb://mongo:27017/node-boilerplate
+    environment:
+      - MONGODB_URL=mongodb://mongo:27017/crm
       - CLIENT_URL=${CLIENT_URL}
-    links: 
-      - mongo  
+    links:
+      - mongo
     depends_on:
-      - mongo  
+      - mongo
     networks:
       - backend
 
 networks:
   backend:
-    driver: bridge    
+    driver: bridge
