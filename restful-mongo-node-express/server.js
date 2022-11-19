@@ -5,7 +5,8 @@ if (process.env.NODE_ENV === "test") {
     ? "./config-prod.json"
     : "./config-dev.json");
 }
-import  express from "express";
+
+const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
 const helmet = require("helmet");
