@@ -41,6 +41,9 @@ app.use((req, res, next) => {
 });
 
 
+// serving static files
+app.use(express.static('public'));
+
 app.use("/api/contacts", crmController);
 app.use("/api/auth", authController);
 
