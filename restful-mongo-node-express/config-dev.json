@@ -1,7 +1,7 @@
 {
   "isProduction:": false,
   "database": {
-    "connectionString": "mongodb://localhost:27017/CRMdb"
+    "connectionString": "mongodb://127.0.0.1:27017/CRMdb"
   },
   "jwtKey": "somejwtkey"
 }
