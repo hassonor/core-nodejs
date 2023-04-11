@@ -1,73 +1,73 @@
-### The HTTP Module
+# Node.js HTTP Module and Networking
 
-___
+## Table of Contents
+1. [The HTTP Module](#the-http-module)
+2. [Working with the Request Body](#working-with-the-request-body)
+3. [Managing HTTP Responses](#managing-http-responses)
+4. [Handling File Uploads with Formidable](#handling-file-uploads-with-formidable)
+5. [The "axios" Package](#the-axios-package)
 
-* Node comes with a built-in HTTP module
-* Provides a flexible, robust API
-* Allows us to:
-    * Create a server
-    * Work with streamed data
-    * Make API calls
-* No external dependencies
+## The HTTP Module
+Node.js comes with a built-in HTTP module that provides a flexible, robust API. It allows you to:
 
-### Working with the Request Body
+- Create a server
+- Work with streamed data
+- Make API calls
 
-___
+This is done without any external dependencies.
 
-#### Request Object Properties
+## Working with the Request Body
 
-* request.url
-* request.method
-* request.headers
+### Request Object Properties
 
-#### Recap
+- `request.url`
+- `request.method`
+- `request.headers`
 
-* Our request headers, URL, and method are available to us immediately
-* We need to fully receive a request body
-* Buffers are like small packages of information
-* The "request" object makes use of two interfaces
-    * _ReadableStream_
-    * _EventEmitter_
+**Recap**:
 
-### Managing HTTP Responses
+- Request headers, URL, and method are available immediately.
+- The request body needs to be fully received.
+- Buffers are like small packages of information.
+- The "request" object utilizes two interfaces:
+  - _ReadableStream_
+  - _EventEmitter_
 
-___
+## Managing HTTP Responses
 
-#### Creating a Response
+### Creating a Response
 
-* Set status code
-* Set headers
-* Write data
-* Close connection
+- Set status code
+- Set headers
+- Write data
+- Close connection
 
-#### The Benefits of Streamed Data
+### The Benefits of Streamed Data
 
-* We can operate on our data one piece at a time
-* Memory Efficiency
-* Time Efficiency
+- Operate on data one piece at a time
+- Memory efficiency
+- Time efficiency
 
-#### The "Error" Class
+### The "Error" Class
 
-* `error.code`
-* `error.message`
-* `error.stack`
+- `error.code`
+- `error.message`
+- `error.stack`
 
-### Handling File Uploads with Formidable
+## Handling File Uploads with Formidable
 
-#### Benefits
+### Benefits
 
-* Fast (~500mb/sec)
-* Automatically write to disk
-* Low memory footprint
-* Graceful error handling
-* Very high test coverage
+- Fast (~500mb/sec)
+- Automatically writes to disk
+- Low memory footprint
+- Graceful error handling
+- Very high test coverage
 
-### The "axios" Package
+## The "axios" Package
 
-* Well-maintained
-* Works Client and Server-side
-* Streaming
-* Promise Based API
-* Automatic Transformation of Data into JSON
-
-
+- Well-maintained
+- Works client and server-side
+- Streaming
+- Promise-based API
+- Automatic transformation of data into JSON
