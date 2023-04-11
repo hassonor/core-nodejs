@@ -1,19 +1,16 @@
 ## Modules and Concurrency
 
-_____________________________________________________________
-
 ### What exactly is a Module?
 
-\
-**Module(In Node.js)**\
-A file (or a folder) that contains code
+**Module (in Node.js)**: A file (or a folder) that contains code.
 
 ### The Event Loop
 
-What Node uses to process asynchronous actions and interface them for you so that you don't have to deal with threads.
+The mechanism Node.js uses to process asynchronous actions and interface them for developers, avoiding the need to deal with threads.
 
-run: `ps -ef | grep node` to filter the list to any processes that are matching the word node.
+**Tip**: Run `ps -ef | grep node` to filter the process list for any processes matching the word "node".
 
 ### Errors vs Exceptions
 
-**Error is "Problem"** | **Exception is "Condition"**
+- **Error is a "Problem"**: Indicates an issue or malfunction.
+- **Exception is a "Condition"**: Represents an abnormal or unexpected event that occurs during program execution.
