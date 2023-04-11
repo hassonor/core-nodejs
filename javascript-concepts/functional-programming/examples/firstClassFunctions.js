@@ -119,3 +119,5 @@ const divideSafe = secondArgumentIsntZero(divide);
 
 console.log(divideSafe(9, 0));
 console.log(divideSafe(9, 3));
+
+/// ////////////////////////////////////////////////////////////////////////
