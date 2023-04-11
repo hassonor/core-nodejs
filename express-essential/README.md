@@ -1,66 +1,90 @@
-## Express Basic and Routing Fundamentals
+# Express Basics and Routing Fundamentals
 
-___
+---
 
-#### Route
+## Table of Contents
 
-How an application responds to a client<br>
-request to a particular endpoint, which <br>
-is a path and an HTTP request method.
+1. [Route](#route)
+2. [Route Parameters](#route-parameters)
+3. [HTTP Methods](#http-methods)
+4. [HTTP Messages](#http-messages)
+5. [Response Methods](#response-methods)
+6. [Middlewares](#middlewares)
+7. [Security Concerns and Best Practices](#security-concerns-and-best-practices)
 
-#### Routes: Parameters
+---
 
-Segments of a URL that are used to <br>
-capture values specified at positions <br>
-within the URL
+## Route
 
-#### HTTP Methods
+A route defines how an application responds to a client request to a particular endpoint, which consists of a path and an HTTP request method.
 
-Action taken on a specific resource,<br>
-ofter corresponding to create, read, <br>
-update, and delete (CRUD) operations. <br>
+[Back to top](#table-of-contents)
 
-* __GET__: Retrieves data from the server. Example: Get all items currently on your grocery list.
-* __POST__: Sends data to the server and created a new resource. Example: Add a new item to your grocery list.
-* __PUT__: Updated an existing resource. Example: Change the quantity of an existing item on your grocery list.
-* __DELETE__: Deletes an existing resource. Example: Remove an item from your grocery list.
+---
 
-#### HTTP Messages
+## Route Parameters
 
-* Requests: sent by the client to trigger an action on the server
-* Responses: Answers from the server
+Route parameters are segments of a URL used to capture values specified at specific positions within the URL.
 
-### Response Methods
+[Back to top](#table-of-contents)
 
-___
-The methods on the response object <br>
-that are responsible for transmitting<br>
-information to the client
+---
 
-#### Response Methods
+## HTTP Methods
 
-* __.json():__ Sends a JSON response.
-* __.send():__ Sends the HTTP response.
-* __.download():__ Transfers the file as an attachment
-* __.redirect():__ Redirects the user to the specified path
+HTTP methods represent actions taken on a specific resource, often corresponding to create, read, update, and delete (CRUD) operations.
 
-### Middlewares
+- **GET**: Retrieves data from the server. Example: Get all items currently on your grocery list.
+- **POST**: Sends data to the server and creates a new resource. Example: Add a new item to your grocery list.
+- **PUT**: Updates an existing resource. Example: Change the quantity of an existing item on your grocery list.
+- **DELETE**: Deletes an existing resource. Example: Remove an item from your grocery list.
 
-___
+[Back to top](#table-of-contents)
 
-#### Built-In Middleware Functions
+---
 
-* __express.static:__ Serves static assets
-* __express.json:__ Parses incoming requests with JSON payloads
-* __express.urlencoded:__ Parses incoming requests with URL-encoded payloads
+## HTTP Messages
 
-### Security concerns and best practices
+- **Requests**: Sent by the client to trigger an action on the server
+- **Responses**: Answers from the server
 
-* Make sure you are using the most up-to-date version of Express
-* Use Transport Layer Security (TLS)
-* Use Helmet
-* Use cookies securely
-* Prevent brute-force attacks against authorization
-* Ensure your dependencies are secure
+[Back to top](#table-of-contents)
 
+---
+
+## Response Methods
+
+The methods on the response object are responsible for transmitting information to the client.
+
+- **.json()**: Sends a JSON response.
+- **.send()**: Sends the HTTP response.
+- **.download()**: Transfers the file as an attachment
+- **.redirect()**: Redirects the user to the specified path
+
+[Back to top](#table-of-contents)
+
+---
+
+## Middlewares
+
+### Built-In Middleware Functions
+
+- **express.static**: Serves static assets
+- **express.json**: Parses incoming requests with JSON payloads
+- **express.urlencoded**: Parses incoming requests with URL-encoded payloads
+
+[Back to top](#table-of-contents)
+
+---
+
+## Security Concerns and Best Practices
+
+- Make sure you are using the most up-to-date version of Express
+- Use Transport Layer Security (TLS)
+- Use [Helmet](https://helmetjs.github.io/)
+- Use cookies securely
+- Prevent brute-force attacks against authorization
+- Ensure your dependencies are secure
+
+[Back to top](#table-of-contents)
 
