@@ -15,9 +15,9 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "eslint": "^8.28.0",
-    "eslint-plugin-react": "^7.31.11",
-    "nodemon": "^2.0.20"
+    "eslint": "^8.38.0",
+    "eslint-plugin-react": "^7.32.2",
+    "nodemon": "^2.0.22"
   },
   "keywords": [],
   "author": "Or Hasson",
