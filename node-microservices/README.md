@@ -1,20 +1,25 @@
 #### Basic Principles of Microservices
 
-* One microservice should only do one task, like fetching a customer from a back end
-* It should be possible to develop and deploy a microservice completely independent from
-  all other parts of an application
-* Microservices should communicate using standard HTTP methods
+- A microservice should focus on a single responsibility, such as retrieving customer data from a backend system.
+- Microservices should be designed and deployed independently of other parts of the application.
+- Communication between microservices should leverage standard HTTP methods.
+
+**Example**: A microservice for user authentication, separate from another microservice handling product management.
 
 #### Benefits of Using Microservices
 
-* New developers don't have to understand the whole application
-* Services can be developed and deployed by independent teams
-* Services can be developed with the language that does a given task best
-* If a service fails, the whole application does not have to fail+
+- New developers can focus on specific services without needing to understand the entire application.
+- Services can be developed and deployed by independent teams.
+- Services can be built using the most suitable programming language for the task at hand.
+- Failure in one service does not necessarily cause the entire application to fail.
+
+**Example**: A team of Python developers working on a recommendation service, while another team of Node.js developers works on the user authentication service.
 
 #### Drawbacks of Using Microservices
 
-* Possible code redundancies
-* Harder to roll out new versions
-* Harder to test
-* Complexity is moved to the network layer
+- Potential for code redundancies.
+- Challenges in rolling out new versions of services.
+- Increased difficulty in testing.
+- Complexity shifts to the network layer.
+
+**Example**: Overlapping functionality between a product management service and an order management service, both implementing similar code for managing inventory.
