@@ -14,7 +14,8 @@
     "@babel/node": "^7.20.7",
     "@babel/preset-env": "^7.21.4",
     "an-array-of-english-words": "^2.0.0",
-    "moment": "^2.29.4"
+    "moment": "^2.29.4",
+    "ndjson": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "^8.38.0",
