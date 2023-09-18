@@ -30,10 +30,6 @@ Welcome to the ultimate guide to Node.js! This repository is a comprehensive col
 
 Contributions are always welcome! If you have any examples, patterns, or concepts you'd like to add, please feel free to submit a pull request.
 
-## 📖 License
-
-This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
-
 ## 🙌 Acknowledgments
 
 A big thank you to all the authors of the Node.js books and courses from which some examples have been taken. Your work has been instrumental in the Node.js community.
