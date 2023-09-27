@@ -1,5 +1,7 @@
 ### Express Web Application Example
 
+.
+
 1. `npm install`
    Run the application with:
 
