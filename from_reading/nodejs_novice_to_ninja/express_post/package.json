@@ -1,0 +1,17 @@
+{
+  "name": "express_post",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "The is an express app demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Or Hasson",
+  "license": "MIT",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  }
+}
