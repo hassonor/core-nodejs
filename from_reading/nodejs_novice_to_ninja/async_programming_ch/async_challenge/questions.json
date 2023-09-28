@@ -1,0 +1,38 @@
+[
+  {
+    "category": "General Knowledge",
+    "type": "multiple",
+    "difficulty": "easy",
+    "question": "What machine element is located in the center of fidget spinners?",
+    "correct_answer": "Bearings",
+    "incorrect_answers": [
+      "Axles",
+      "Gears",
+      "Belts"
+    ]
+  },
+  {
+    "category": "Science: Computers",
+    "type": "multiple",
+    "difficulty": "easy",
+    "question": "HTML is what type of language?",
+    "correct_answer": "Markup Language",
+    "incorrect_answers": [
+      "Macro Language",
+      "Programming Language",
+      "Scripting Language"
+    ]
+  },
+  {
+    "category": "Science: Gadgets",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "Which company developed the Hololens?",
+    "correct_answer": "Microsoft",
+    "incorrect_answers": [
+      "HTC",
+      "Oculus",
+      "Tobii"
+    ]
+  }
+]

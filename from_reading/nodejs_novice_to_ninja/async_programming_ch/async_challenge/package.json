@@ -1,0 +1,15 @@
+{
+  "name": "express_demo",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "The is an express app demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Or Hasson",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.5.1"
+  }
+}
