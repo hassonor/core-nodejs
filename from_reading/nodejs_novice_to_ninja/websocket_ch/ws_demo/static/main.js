@@ -33,11 +33,11 @@ function wsInit(wsServer) {
             const msg = document.createElement('div');
 
             name.className = 'name';
-            name.textContent = (chat.name || 'unknown');
+            name.textContent = chat.name || 'unknown';
             dom.chat.appendChild(name);
 
             msg.className = 'msg';
-            msg.textContent = (chat.msg || 'said nothing');
+            msg.textContent = chat.msg || 'said nothing';
             dom.chat.appendChild(msg).scrollIntoView({behavior: 'smooth'});
 
         } catch (err) {
