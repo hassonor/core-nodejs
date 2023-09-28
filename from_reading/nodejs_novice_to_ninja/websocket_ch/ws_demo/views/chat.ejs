@@ -1,35 +1,71 @@
 <!doctype html>
 <html lang="en">
+
 <head>
+    <!-- Meta tags -->
     <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
     <title><%= title %></title>
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" media="all" href="main.css">
-    <meta name="viewport" content="width=device-width">
 </head>
+
 <body>
-
 <main>
+    <!-- Header section with chat title and online users count -->
+    <header>
+        <h1><%= title %></h1>
+        <span id="onlineCount">Users Online: 0</span>
+    </header>
 
-    <h1><%= title %></h1>
+    <!-- Theme control section -->
+    <div id="themeControls">
+        <label>
+            <input type="radio" name="theme" id="darkMode" value="dark" checked> Dark
+        </label>
+        <label>
+            <input type="radio" name="theme" id="lightMode" value="light"> Light
+        </label>
+    </div>
 
+    <!-- Chat display section -->
     <section id="chat"></section>
 
+    <!-- Input form section -->
     <form id="form" method="get" action="/">
-        <input type="text" id="name" placeholder="your name" title="your name" value="" maxlength="<%= nameLen %>"
+        <input type="text" id="name" placeholder="your name" title="your name" maxlength="<%= nameLen %>"
                autocomplete="off" required/>
         <input type="text" id="message" placeholder="your message" title="your message" maxlength="<%= msgLen %>"
                autocomplete="off" required/>
-        <button>SEND</button>
+        <button type="submit">SEND</button>
     </form>
-
 </main>
 
+<!-- JavaScript -->
 <script type="module">
+    // Configuration settings
     window.cfg = {
         wsPort: <%= wsPort %>,
         nameLen: <%= nameLen %>
     };
+
+    // Dark mode and Light mode toggling
+    const darkModeRadio = document.getElementById("darkMode");
+    const lightModeRadio = document.getElementById("lightMode");
+
+    darkModeRadio.addEventListener("change", function () {
+        document.body.removeAttribute("data-theme");
+    });
+
+    lightModeRadio.addEventListener("change", function () {
+        document.body.setAttribute("data-theme", "light");
+    });
 </script>
+
+<!-- External JavaScript -->
 <script type="module" src="main.js"></script>
 </body>
 </html>

@@ -19,13 +19,18 @@ function wsInit(wsServer) {
 
     // receive message
     ws.addEventListener('message', e => {
-
         try {
+            const chat = JSON.parse(e.data);
 
-            const
-                chat = JSON.parse(e.data),
-                name = document.createElement('div'),
-                msg = document.createElement('div');
+            // Handle user count messages
+            if (chat.type === 'userCount') {
+                const onlineCountElem = document.getElementById('onlineCount');
+                onlineCountElem.textContent = `Users Online: ${chat.count}`;
+                return;  // Exit here for user count updates
+            }
+
+            const name = document.createElement('div');
+            const msg = document.createElement('div');
 
             name.className = 'name';
             name.textContent = (chat.name || 'unknown');
@@ -38,7 +43,6 @@ function wsInit(wsServer) {
         } catch (err) {
             console.log('invalid JSON', err);
         }
-
     });
 
 
