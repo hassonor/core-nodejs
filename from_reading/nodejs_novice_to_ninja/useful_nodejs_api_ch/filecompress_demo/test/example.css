@@ -1,0 +1,111 @@
+/* Root variables for color and styling */
+:root {
+    /* Default (Dark mode) variables */
+    --font: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --text-color: #eaeaea;
+    --bg-color: #2a2a2a;
+    --border-color: #444;
+    --highlight-color: #e76f51;
+    --input-bg-color: #3a3a3a;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] {
+    /* Light mode color overrides */
+    --text-color: #333;
+    --bg-color: #fafafa;
+    --border-color: #ddd;
+    --highlight-color: #0077b6;
+    --input-bg-color: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Global Styles */
+*, *:before, *:after {
+    box-sizing: border-box;
+    font-family: var(--font);
+    padding: 0;
+    margin: 0;
+    line-height: 1.5;
+}
+
+html, body, main {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: color 0.3s, background-color 0.3s;
+}
+
+/* Main content and header styles */
+main {
+    padding: 2em;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 2.2em;
+    padding: 0.5em 1em;
+}
+
+/* Chat layout and message styles */
+#chat {
+    display: grid;
+    grid-auto-rows: min-content;
+    grid-template-columns: min-content 1fr;
+    padding: 0.5em 1em;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: auto;
+    margin: 0 1em;
+}
+
+div.name {
+    color: var(--highlight-color);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Form styles and interactions */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1em;
+    border-top: 1px solid var(--border-color);
+}
+
+input, button {
+    font-size: 1.2rem;
+    padding: 0.5em;
+    border-radius: 4px;
+    background: var(--input-bg-color);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+input:focus, button:focus, button:hover {
+    background-color: var(--highlight-color);
+    color: var(--bg-color);
+    transform: translateY(-2px); /* subtle lift effect */
+}
+
+/* Star Wars inspired animation */
+@keyframes starWarsGlow {
+    0% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e76f51, 0 0 20px #e76f51, 0 0 25px #e76f51, 0 0 30px #e76f51, 0 0 35px #e76f51;
+    }
+    100% {
+        text-shadow: 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #e76f51, 0 0 25px #e76f51, 0 0 30px #e76f51, 0 0 35px #e76f51, 0 0 40px #e76f51, 0 0 50px #e76f51, 0 0 75px #e76f51;
+    }
+}
+
+h1 {
+    animation: starWarsGlow 1.5s infinite alternate;
+}
