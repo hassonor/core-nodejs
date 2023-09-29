@@ -1,0 +1,14 @@
+{
+  "name": "filecompress_demo",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "The is a file compress demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Or Hasson",
+  "license": "MIT",
+  "dependencies": {
+  }
+}
