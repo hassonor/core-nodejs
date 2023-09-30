@@ -18,7 +18,7 @@ JavaScript offers three different ways to do this:
 The first way to protect objects from changes is to use the `Object.preventExtensions` method.
 As the name suggests, if you pass an object to this method, it will no longer be possible to extend the object.
 In other words, no new properties and methods can be added.
-<br><br>
+<Br><br>
 Values of existing properties and methods can be changed, though.<br><br>
 The `Object.isExtensible()` method enables you to check whether an object is extensible or not.
 
@@ -82,3 +82,34 @@ Object.defineProperty(developer, 'firstName', {
 
 `Sealed Objects Are Not Expandable`: Because sealed objects are also non-extensible,
 the `Object.isExtensible(developer)` method returns false.
+
+#### Freezing Objects
+
+The `Object.freeze()` method goes one step further than the previously shown options.
+It freezes objects: like `Object.preventExtensions()`,
+it ensures that objects cannot be extended by new properties and methods, and like the `Object.seal()` method,
+it ensures that property attributes cannot be changed,
+but in addition, values of existing properties (and methods) cannot be changed.
+The `Object.isFrozen()` method can be used to determine whether an object is frozen or not.
+
+```javascript
+const developer = {
+    firstName: 'Or',
+    lastName: 'Hasson'
+}
+
+console.log(Object.isExtensible(developer)); // true
+console.log(Object.isSealed(developer)); // false
+console.log(Object.isFrozen(developer)); // false
+
+developer.age = 32; // new property
+console.log(developer.age); // 32
+
+Object.freeze(developer); // freeze object
+console.log(Object.isExtensible(developer)); // false
+console.log(Object.isSealed(developer)); // true
+console.log(Object.isFrozen(developer)); // true
+
+developer.firstName = 'Orr'; // TypeError: Cannot assign to read only peroperty 'firstName' of #<Object>
+
+```
