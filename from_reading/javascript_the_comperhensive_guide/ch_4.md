@@ -187,4 +187,74 @@ values.sort(compare);
 console.log(values); // 2,4,4,6,7,9
 ```
 
+#### Sorting Objects in Arrays
 
+A slightly more complex example of using the `sort()` method is will show next.
+
+```javascript
+const contacts = [
+    {
+        firstName: 'John',
+        lastName: 'Doe',
+        email: 'john.doe@javascripthandbuch.de'
+    },
+    {
+        firstName: 'James',
+        lastName: 'Dean',
+        email: 'superjames@javascripthandbuch.de'
+    },
+    {
+        firstName: 'Peter',
+        lastName: 'Dickens',
+        email: 'dickens@javascripthandbuch.de'
+    }
+];
+
+function compareByFirstName(contact1, contact2) {
+    return contact1.firstName.localeCompare(contact2.firstName);
+}
+
+function compareByLastName(contact1, contact2) {
+    return contact1.lastName.localeCompare(contact2.lastName);
+}
+
+function compareByEmail(contact1, contact2) {
+    return contact1.email.localeCompare(contact2.email);
+}
+
+contacts.sort(compareByFirstName); // sort by first name
+console.log(contacts[0].firstName); // James
+console.log(contacts[1].firstName); // John
+console.log(contacts[2].firstName); // Peter
+contacts.sort(compareByLastName); // sort by last name
+console.log(contacts[0].firstName); // James
+console.log(contacts[1].firstName); // Peter
+console.log(contacts[2].firstName); // John
+contacts.sort(compareByEmail); // sort by email address
+console.log(contacts[0].firstName); // Peter
+console.log(contacts[1].firstName); // John
+console.log(contacts[2].firstName); // James
+```
+
+#### Converting Arrays to Strings
+
+To convert arrays into a string, you have several options.
+On the one hand, you can use the `toString()`, `toLocaleString()`, and `valueOf()` methods.
+On the other hand, arrays offer the `join()` method,
+which can be used to join the individual elements of an array into a string.
+In this case, it's possible to specify a string as a parameter that is to be used as a separator.
+
+```javascript
+const names = ['Or', 'Hasson', 'Peter'];
+const nameString = names.toString();
+console.log(nameString); // Output: Or,Hasson,Peter
+
+const namesLocaleString = names.toLocaleString();
+console.log(namesLocaleString); // Output: Or,Hasson,Peter
+
+const namesValue = names.valueOf();
+console.log(namesValue); // Output: ["Or","Hasson","Peter"]
+
+const namesJoined = names.join('-');
+console.log(namesJoined); // Output: Or-Hasson-Peter
+```
