@@ -113,3 +113,78 @@ console.log(Object.isFrozen(developer)); // true
 developer.firstName = 'Orr'; // TypeError: Cannot assign to read only peroperty 'firstName' of #<Object>
 
 ```
+
+## Arrays
+
+___
+An overview of the most important methods of arrays:
+
+* `concat()` - Appends elements or arrays to an existing array
+* `filter()` - Filters elements from the array based on a filter criterion passed in the form of a function
+* `forEach()` - Applies a passed function to each element in the array
+* `join()` - Convert an array into a string
+* `map()` - Maps the elements of an array to new elements based on a passed conversion function
+* `pop()` - Removes the last element of an array
+* `push()` - Inserts a new element at the end of the array
+* `unshift()` - Inserts a new element at the beginning of the array
+* `reduce()` - Combines the elements of an array into one value based on a passed function
+* `reverse()` - Reverses the order of the elements in the array
+* `shift()` - Removes the first element of an array
+* `slice()` - Cuts individual elements from an array
+* `splice()` - Adds new elements at any position in the array
+* `sort()` - Sorts the array, optionally based on a passed comparison function
+
+#### Some slice use examples:
+
+```javascript
+const sliced1 = arr.slice(-2) // the last two elements
+const sliced2 = arr.slice(1, -1) // the second element from the beginning to the second element from the end
+const sliced3 = arr.slice(1, -2) // the second element from the beginning to the third element from the end
+const sliced4 = arr.slice(1, -3) // the second element from the beginning to the fourth element from the end
+```
+
+### Sorting Arrays
+
+___
+Sorting data an array is relatively simple.
+Two methods are available for this purpose: `reverse()` and `sort()`.
+The former simply reversed the order of the elements in the array;
+the latter allows sorting the elements according to specific individual criteria.
+
+```javascript
+const someRandomArray = ['Or', 'Hasson', 'Was', 'Here']
+someRandomArray.reverse();
+console.log(someRandomArray); // Output: Here, Was, Hasson, Or
+```
+
+#### Sorting the Elements in an Array According to Specific Criteria
+
+The `sort()` method provided more flexibility
+because it enables you the optionally define your own sort criterion to influence the order.
+The sort criterion is specified in the form of a comparison function,
+which is passed as an argument to the `sort()` method.
+The comparison function, in turn,
+has two parameters and is internally invoked in pairs for values of the array when `sort()` is called.
+The return value of the function determines which of two values is greater than the other:
+
+* The return value `-1` means that the first value is smalled than the second value.
+* The return value `1` means that the first value is greater than the second value.
+* The return value `0` means that both values are equal.
+
+```javascript
+const compare = (value1, value2) => {
+    if (value1 < value2) {
+        return -1; // The first value is smaller than the second value.
+    } else if (value1 > value2) {
+        return 1; // The first value is greater than the second value.
+    } else {
+        return 0; // Both values are of equal size.
+    }
+}
+
+const values = [9, 6, 4, 8, 7, 2, 4];
+values.sort(compare);
+console.log(values); // 2,4,4,6,7,9
+```
+
+
