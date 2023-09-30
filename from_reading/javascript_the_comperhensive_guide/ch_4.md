@@ -258,3 +258,69 @@ console.log(namesValue); // Output: ["Or","Hasson","Peter"]
 const namesJoined = names.join('-');
 console.log(namesJoined); // Output: Or-Hasson-Peter
 ```
+
+## Strings
+
+___
+
+### Extracting Parts of a String
+
+Besides the `slice()` method, there are two more methods available for extracting strings:
+the `substring()` method and the `substr()` method.
+Although these two methods have similar names and expect the same number of arguments, there is a subtle difference.
+Both methods expect as the first argument the start index from which the substring is to be extracted,
+and both methods can also optionally be passed a second argument.
+The difference is that in the case of `substring()`,
+the second argument denotes the index up to which to extract,
+and in the case of `subtr()`, it specifies the number of characters to extract starting form the start index.
+If, however, the second argument is omitted,
+both methods behave in the same way
+because then extraction simply starts from the start index and continues to the end of the string.
+
+```javascript
+const name = "Ran Mustermann"
+console.log(name.substring(4, 10)); // Muster
+console.log(name.substring(4)); // Mustermann
+console.log(name.substr(4, 6)); // Muster
+console.log(name.substr(4)); // Mustermann
+```
+
+### More Methods for Strings
+
+`toLowerCase()` and `toUpperCase()` can be used to convert all characters in a string to lowercase or uppercase,
+respectively.
+The `repeat()` method,
+which is passed a number as an argument,
+uses a string to create a new string in which the original string occurs as often as specified.
+And the `chartAt()` method allows you to target individual characters of a string at a specific index.<br><br>
+
+The `padStrart()` and `padEnd()` methods, which were introduced with version `ES2017`.
+Both methods pad a given string from the beginning (`padStart()`) or the end (`padEnd()`),
+using another string until a certain length is reached.
+For Example: `Hello`.padStart(9, 'H')
+causes the string `Hello` to be padded from the beginning up to a string length of 9 using the string `H`,
+resulting in the string `HHHHHello`.
+Conversely, `Hello`.padEnd(9,'o')
+causes the string (up to a length of `9`) to be padded from the end using string o,
+resulting in the string `Hellooooo`.
+<br><br>
+The two methods are particularly convenient when it comes to formatting numbers:
+
+```javascript
+for (let i = 1; i < 15; i++) {
+    console.log(`${i}`.padStart(3, '0'));
+}
+// Output consecutively:
+// "001", "002", "003", "004", "005"
+// "006", "007", "008", "009", "010"
+// "011", "012", "013", "014"
+
+for (let i = 1; i < 15; i++) {
+    console.log(`${i}`.padEnd(3, '0'));
+}
+// Output consecutively:
+// "100", "200", "300", "400", "500"
+// "600", "700", "800", "900", "100"
+// "110", "120", "130", "140"
+
+```
