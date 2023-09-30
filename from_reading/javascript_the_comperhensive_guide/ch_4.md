@@ -324,3 +324,47 @@ for (let i = 1; i < 15; i++) {
 // "110", "120", "130", "140"
 
 ```
+
+## Maps
+
+___
+
+### Using Maps
+
+* `clear()` - Deletes all key-value pairs from the map.
+* `delete()` - Deleted the value of a given key from the map. If the deletion is successful, the method return `true`,
+  otherwise `false`.
+* `get()` - Returns the associated value for a key. If the key does not exist in the map, the method
+  returns `undefined`.
+* `has()` - Checks for a key whether there is a value in the map. If yes the method returns `true`, otherwise `false`.
+* `set()` - Sets the corresponding value for a key.
+  If the key already exists in the map, the value associated with it
+  will be overwritten.
+* `size()` - Contains the number of key-value pairs in the map.
+* `entries()` - Returns an iterator that can be used to iterate over the key-value pairs of the map.
+* `keys()` - Analogous to `entries()`, this method returns an iterator for the keys of the map.
+
+```javascript
+const numbersOfAlbums = new Map(); // Create the map
+
+numbersOfAlbums.set('Kyuss', 4); // Add multiple entries
+numbersOfAlbums.set('Tool', 6);
+numbersOfAlbums.set('Monster Magnet', 8);
+numbersOfAlbums.set('Ben Harper', 9);
+numbersOfAlbums.set('Queens of the Stone Age', 6);
+
+console.log(numbersOfAlbums.get('Kyuss')); // Output: 4
+console.log(numbersOfAlbums.size); // Output: 5
+console.log(numbersOfAlbums.has('Kyuss')); // Output: true
+
+numbersOfAlbums.delete('Kyuss'); // Delete an entry
+
+console.log(numbersOfAlbums.has('Kyuss')); // Output: false
+console.log(
+    numbersOfAlbums.has('Justin Bieber') // Output: false
+);
+numbersOfAlbums.clear(); // Clear all entries
+
+console.log(numbersOfAlbums.size); // Output: 0
+```
+
