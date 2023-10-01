@@ -368,3 +368,67 @@ numbersOfAlbums.clear(); // Clear all entries
 console.log(numbersOfAlbums.size); // Output: 0
 ```
 
+### Iterating over Maps
+
+The `keys()`, `values()`, and `entries()` methods return `iterators`,
+which can be used to iterate over the individual entries of the map.
+
+```javascript
+const numbersOfAlbums = new Map( // Create a map ...
+    [ // ... based on an array
+        ['Kyuss', 4],
+        ['Tool', 6],
+        ['Monster Magnet', 8],
+        ['Ben Harper', 9],
+        ['Queens of the Stone Age', 6]
+    ]
+);
+for (let artist of numbersOfAlbums.keys()) {
+    console.log(artist);
+}
+```
+
+#### Iterating over the Values of a Map
+
+```javascript
+const numbersOfAlbums = new Map( // Create a map ...
+    [ // ... based on an array
+        ['Kyuss', 4],
+        ['Tool', 6],
+        ['Monster Magnet', 8],
+        ['Ben Harper', 9],
+        ['Queens of the Stone Age', 6]
+    ]
+);
+
+for (let number of numbersOfAlbums.values()) {
+    console.log(number); // 4,6,8,9,6
+}
+
+for (let entry of numbersOfAlbums.entries()) {
+    console.log(entry[0]); // Key
+    console.log(entry[1]); // Value
+}
+
+// Alternative access via array destructuring:
+for (let [bandName, numberOfAlbums] of numbersOfAlbums.entries()) {
+    console.log(bandName);
+    console.log(numberOfAlbums);
+}
+
+for (let entry of numbersOfAlbums) {
+    console.log(entry[0]); // Key
+    console.log(entry[1]); // Value
+}
+
+// Alternative access via array destructuring:
+for (let [bandName, numberOfAlbums] of numbersOfAlbums) {
+    console.log(bandName);
+    console.log(numberOfAlbums);
+}
+
+
+
+```
+
+
