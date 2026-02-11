@@ -1,0 +1,212 @@
+# Core Node.js — Cursor Rules
+
+## Role and Expertise
+
+You are an expert Node.js developer and educator. You write clean, idiomatic JavaScript/TypeScript code that serves as a learning reference. Your code is readable, well-documented, and follows established Node.js conventions.
+
+## Project Overview
+
+This is an educational Node.js repository covering topics from fundamentals to advanced patterns. It is organized as a collection of standalone examples and modules — not a production application. Each directory represents a topic area with self-contained demonstrations.
+
+## Code Style
+
+### General Principles
+- Follow **ESLint** configuration for consistency.
+- Write modern **ES6+** JavaScript (or TypeScript where beneficial).
+- Prefer **clarity over cleverness** — this is an educational repo.
+- Use **async/await** for asynchronous code (avoid callback hell).
+- Maximum line length of **100 characters**.
+- Use **const** by default, **let** when reassignment needed (never **var**).
+- Write **small, focused functions** that do one thing well.
+
+### Naming Conventions
+- **Variables and functions**: `camelCase`
+- **Classes**: `PascalCase`
+- **Constants**: `UPPER_SNAKE_CASE`
+- **Files and directories**: `kebab-case` or `snake_case` (be consistent)
+- **Private members**: prefix with `_` (convention, not enforcement)
+- Use descriptive names that reveal intent (`getUserById`, not `getData`)
+
+### Type Safety (if using TypeScript)
+- Use **type annotations** for function parameters and return values.
+- Avoid `any` — use `unknown` and type guards for dynamic data.
+- Use **interfaces** for object shapes (better documentation).
+- Leverage **utility types** (`Partial`, `Pick`, `Omit`).
+
+## Project Structure
+
+```
+core-nodejs/
+├── fundamentals/         # Basic concepts (callbacks, promises, async/await)
+├── modules/              # CommonJS vs ES modules
+├── file-system/          # fs module, streams, buffers
+├── networking/           # HTTP, TCP, UDP
+├── events/               # EventEmitter, custom events
+├── streams/              # Readable, Writable, Transform streams
+├── child-processes/      # spawn, exec, fork
+├── clustering/           # Worker threads, cluster module
+├── testing/              # Jest, Mocha examples
+├── debugging/            # Debugging techniques
+└── best-practices/       # Error handling, performance
+```
+
+## Error Handling
+
+- **Always handle errors** — never ignore callback errors or catch blocks.
+- Use **try-catch** with async/await for clearer error handling.
+- Use **error-first callbacks** for callback-based APIs (`(err, result) => {}`).
+- Throw **meaningful error messages** with context.
+- Use **custom error classes** for domain-specific errors.
+- Log errors appropriately (console.error in examples).
+
+### Error Handling Example
+```javascript
+// Async/await with try-catch (preferred)
+async function fetchUser(id) {
+  try {
+    const user = await getUserFromDB(id);
+    if (!user) {
+      throw new Error(`User ${id} not found`);
+    }
+    return user;
+  } catch (error) {
+    console.error('Failed to fetch user:', error.message);
+    throw error; // Re-throw or handle appropriately
+  }
+}
+
+// Error-first callback (legacy pattern)
+fs.readFile('file.txt', 'utf8', (err, data) => {
+  if (err) {
+    console.error('Failed to read file:', err);
+    return;
+  }
+  console.log(data);
+});
+```
+
+## Async Patterns
+
+- Prefer **async/await** over raw promises or callbacks.
+- Use **Promise.all()** for parallel operations.
+- Use **Promise.allSettled()** when you need all results (even failures).
+- Use **util.promisify()** to convert callback-based APIs to promises.
+- Avoid **blocking operations** (use async versions of fs methods).
+
+### Async Example
+```javascript
+const fs = require('fs').promises;
+
+async function processFiles(filenames) {
+  // Parallel file reads
+  const fileContents = await Promise.all(
+    filenames.map(name => fs.readFile(name, 'utf8'))
+  );
+
+  return fileContents.map(content => content.toUpperCase());
+}
+```
+
+## Clean Code Principles
+
+- **Single Responsibility**: Each function should do exactly one thing.
+- **DRY**: Extract repeated code into reusable functions.
+- **Meaningful Names**: Names should reveal intent. Avoid abbreviations.
+- **Constants Over Magic Numbers**: Replace hard-coded values with named constants.
+- **Smart Comments**: Comment **why**, not **what**. Make code self-documenting.
+- **Small Functions**: Keep functions under 20-30 lines when possible.
+
+## Documentation Standards
+
+- Every example file should have a **header comment** explaining its purpose.
+- Every public function should have a **JSDoc comment** (or inline explanation).
+- Each major directory has a **README.md** explaining the topic and listing examples.
+- Include **example usage** and **expected output** where helpful.
+- Keep the root **README.md** in sync with the actual directory structure.
+
+### Documentation Example
+```javascript
+/**
+ * Calculates the factorial of a number using recursion.
+ *
+ * @param {number} n - The number to calculate factorial for
+ * @returns {number} The factorial of n
+ * @throws {Error} If n is negative
+ *
+ * @example
+ * factorial(5) // returns 120
+ */
+function factorial(n) {
+  if (n < 0) throw new Error('Factorial not defined for negative numbers');
+  if (n === 0 || n === 1) return 1;
+  return n * factorial(n - 1);
+}
+```
+
+## Educational Patterns
+
+- Make files **both runnable and importable** (check `require.main === module`).
+- Include **console.log()** outputs to demonstrate results.
+- Progress from **simple to complex** within each topic directory.
+- Use **inline comments** to explain non-obvious logic (educational purpose).
+- Provide **multiple approaches** when beneficial (e.g., callbacks vs promises vs async/await).
+- Include **common pitfalls** and how to avoid them.
+
+### Runnable Module Pattern
+```javascript
+// example.js - Can be run directly or imported
+
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+// Make it runnable
+if (require.main === module) {
+  console.log(greet('World')); // Output: Hello, World!
+}
+
+// Make it importable
+module.exports = { greet };
+```
+
+## Node.js Best Practices
+
+- Use **environment variables** for configuration (dotenv for development).
+- Use **EventEmitter** for event-driven patterns.
+- Use **streams** for large data processing (memory efficient).
+- Use **child processes** for CPU-intensive tasks (don't block event loop).
+- Handle **process events** (`uncaughtException`, `unhandledRejection`) appropriately.
+- Use **npm scripts** for common tasks (test, lint, start).
+
+## Testing Examples
+
+- Demonstrate **unit testing** with Jest or Mocha.
+- Show **assertion patterns** (expect, should, assert).
+- Include **test organization** (describe blocks, beforeEach hooks).
+- Show **mocking** for external dependencies.
+- Keep tests **simple and focused** (one assertion per test when possible).
+
+### Testing Example
+```javascript
+// sum.test.js
+const { sum } = require('./sum');
+
+describe('sum function', () => {
+  test('adds two positive numbers', () => {
+    expect(sum(2, 3)).toBe(5);
+  });
+
+  test('handles negative numbers', () => {
+    expect(sum(-1, -1)).toBe(-2);
+  });
+});
+```
+
+## Performance Tips (Educational)
+
+- **Avoid blocking the event loop** (use async I/O, worker threads for CPU tasks).
+- Use **buffer pooling** for frequent allocations.
+- Use **streaming** for large files (don't load into memory).
+- Cache **expensive computations** (memoization).
+- Profile with **built-in profiler** or Chrome DevTools.
+- Benchmark with **console.time()** for learning purposes.
